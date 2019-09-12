@@ -1,0 +1,19 @@
+# /usr/lib/systemd/system/myblog.service
+[Unit]
+Description=My Django Blog
+After=nginx.service mysqld.service
+
+[Service]
+Type=simple
+PIDFile=/var/run/myblog.pid
+ExecStartPre=/usr/bin/rm -f /var/run/myblog.pid
+ExecStart=/opt/myblog/DjangoBlog/venv/bin/python /opt/myblog/DjangoBlog/manage.py runserver
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+KillSignal=SIGQUIT
+TimeoutStopSec=5
+KillMode=process
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

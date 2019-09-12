@@ -23,6 +23,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from DjangoBlog.admin_site import admin_site
 from django.urls import include, path
+from django.views.generic.base import RedirectView
 
 sitemaps = {
 
@@ -39,6 +40,7 @@ handle403 = 'blog.views.permission_denied_view'
 urlpatterns = [
                   url(r'^admin/', admin_site.urls),
                   url(r'', include('blog.urls', namespace='blog')),
+                  url(r'^favicon.ico$',RedirectView.as_view(url=r'static/favicon.ico')),
                   url(r'mdeditor/', include('mdeditor.urls')),
                   url(r'', include('comments.urls', namespace='comment')),
                   url(r'', include('accounts.urls', namespace='account')),
