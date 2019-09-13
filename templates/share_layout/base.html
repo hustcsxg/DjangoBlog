@@ -45,6 +45,7 @@
 </head>
 
 <body class="home blog custom-font-enabled">
+<script color="0,0,0" opacity="0.9" count="500" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.js" type="text/javascript" charset="utf-8"></script>
 <div id="page" class="hfeed site">
     <header id="masthead" class="site-header" role="banner">
         <hgroup>
@@ -71,7 +72,6 @@
     </div><!-- #main .wrapper -->
     {% include 'share_layout/footer.html' %}
 </div><!-- #page -->
-
 </body>
 <footer>
     {% compress js %}
@@ -79,6 +79,8 @@
         <script type="text/javascript" src="{% static 'blog/js/nprogress.js' %}"></script>
         <script src="{% static 'blog/js/blog.js' %}" type="application/javascript"></script>
         <script src="{% static 'blog/js/navigation.js' %}" type="application/javascript"></script>
+        <script src="{% static 'blog/js/mouse_click.js' %}" type="application/javascript"></script>
+
         {% block compress_js %}
         {% endblock %}
     {% endcompress %}
